@@ -214,11 +214,13 @@ end
 
 local function gameStop (event)
 	if keysPressed == 100 then
+		display.remove (timerN)
+		display.remove (timerT)
 		local result
 		Runtime:removeEventListener ("key", highLighter)
-		--local timerPause = timer.pause(timerRun)
 		result = (keysCorrect / keysPressed)*100
 		local resultsText = display.newText("Accuracy = " ..round(result,2), display.contentCenterX, display.contentCenterY + 500, native.systemFont, 50)
+		local timerResult = display.newText("Time = " ..timerCount, display.contentCenterX, display.contentCenterY + 550, native.systemFont, 50)
 	end
 end
 
